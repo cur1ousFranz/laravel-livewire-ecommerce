@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Livewire\Home;
+use App\Http\Livewire\Auth\Logout;
 use App\Http\Livewire\Auth\Signin;
 use App\Http\Livewire\Auth\Signup;
-use App\Http\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 Route::get('/signup', Signup::class)->name('signup');
 Route::get('/signin', Signin::class)->name('signin');
+Route::get('/logout', Logout::class)->name('logout');

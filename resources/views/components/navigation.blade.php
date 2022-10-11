@@ -10,12 +10,18 @@
         <a href="#">Testimonials</a>
         <a href="#">Contact</a>
     </div>
-    <div class="flex space-x-2">
-        <a href="{{ route('signup') }}" class="hidden px-3 py-2 borded rounded-full bg-blue-700 hover:bg-blue-600 text-white lg:flex">
-            Sign up
-        </a>
-        <a href="{{ route('signin') }}" class="hidden px-3 py-2 borded rounded-full bg-blue-700 hover:bg-blue-600 text-white lg:flex">
-            Sign in
-        </a>
-    </div>
+    @guest
+        <div class="flex space-x-2">
+            <a href="{{ route('signup') }}" class="hidden px-3 py-2 borded rounded-full bg-blue-700 hover:bg-blue-600 text-white lg:flex">
+                Sign up
+            </a>
+            <a href="{{ route('signin') }}" class="hidden px-3 py-2 borded rounded-full bg-blue-700 hover:bg-blue-600 text-white lg:flex">
+                Sign in
+            </a>
+        </div>
+    @endguest
+
+    @auth
+        <livewire:auth.logout/>
+    @endauth
 </nav>

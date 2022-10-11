@@ -59,3 +59,20 @@
         </div>
     </div>
 </section>
+
+<script>
+
+    window.addEventListener('stored', (e) => {
+    Swal.fire({
+        title : e.detail.title,
+        icon : e.detail.icon,
+        iconColor : e.detail.iconColor,
+        timer : 3000,
+        toast : true,
+        position : 'top-right',
+        timerProgressBar : true,
+        showConfirmButton : false,
+        });
+    });
+
+</script>

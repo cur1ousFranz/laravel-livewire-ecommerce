@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Signup extends Component
@@ -13,7 +14,7 @@ class Signup extends Component
     public $password_confirmation;
 
     protected $rules = [
-        'email' => 'required|email',
+        'email' => 'required|email|unique:users,email',
         'contactNumber' => 'required',
         'password' => 'required|confirmed',
     ];
@@ -38,6 +39,20 @@ class Signup extends Component
             'email' => 'required|email',
             'contactNumber' => 'required',
             'password' => 'required|confirmed',
+        ]);
+
+        User::create([
+            'email' => $this->email,
+            'contact' => $this->contactNumber,
+            'password' => bcrypt($this->password),
+            'role' => 'customer',
+        ]);
+
+        $this->reset();
+        $this->dispatchBrowserEvent('stored', [
+            'title' => 'Registered Successfully!',
+            'icon' => 'success',
+            'iconColor' => 'green',
         ]);
 
     }
