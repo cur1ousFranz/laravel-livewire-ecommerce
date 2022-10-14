@@ -41,12 +41,15 @@ class Signup extends Component
             'password' => 'required|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'email' => $this->email,
             'contact' => $this->contactNumber,
             'password' => bcrypt($this->password),
             'role' => 'customer',
         ]);
+
+        $customer = $user->customer()->create();
+        $customer->address()->create();
 
         $this->reset();
         $this->dispatchBrowserEvent('stored', [

@@ -39,13 +39,13 @@ class Signin extends Component
 
                 $this->reset();
                 session()->regenerate();
-
                 return redirect(route('home'));
-                $this->emit('redirect', '/');
             }
 
             if($user->role == "seller"){
-
+                $this->reset();
+                session()->regenerate();
+                return redirect(route('dashboard'));
             }
         }else{
             session()->flash('error');

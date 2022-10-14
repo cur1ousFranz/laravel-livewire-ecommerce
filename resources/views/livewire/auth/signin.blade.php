@@ -25,6 +25,8 @@
             <div class="space-y-3 w-8/12 border-blue-200 rounded-xl bg-gray-100 px-8 py-6">
                 <h1 class="text-2xl px-3">Sign in</h1>
                 <form class="py-4 space-y-4" wire:submit.prevent="store">
+                    @csrf
+
                     <x-form.error error="email"/>
                     @if (session()->has('error'))
                         <p class="text-sm text-red-500 px-3">{{ __('Invalid credentials!') }}</p>

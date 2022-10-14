@@ -12,6 +12,7 @@
             <div class="space-y-3 w-8/12 border-blue-200 rounded-xl bg-gray-100 px-8 py-6">
                 <h1 class="text-2xl px-3">Sign up</h1>
                 <form class="py-4 space-y-4" wire:submit.prevent="store">
+                    @csrf
                     <x-form.error error="email"/>
                     <div class="flex rounded-full px-4 bg-white border border-gray-200">
                         <svg class="w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
